@@ -1,5 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400, 300, 600);
- * {
+* {
     padding:0;
     margin:0;
 }
@@ -18,7 +17,7 @@ body {
 }
 header {
     margin-top:0;
-    background-color:#e63737;
+    background-color: dodgerblue;
     width:100%;
     height:48px;
 }
@@ -126,7 +125,7 @@ h2{
     font-family: Arial;
     color: #ffffff;
     font-size: 14px;
-    background: #e63737;
+    background: dodgerblue;
     width: 95%;
     padding: 9px 2.5% 9px 2.5%;
     margin: 10px 0 10px 2.5%; 
@@ -136,13 +135,16 @@ h2{
 li .btn{
     width: 45%;
 }
+#CompletedTodos ul li p{
+    text-decoration: line-through;
+}
 .btn:hover {
-    background: #fc3c3c;
-    background-image: -webkit-linear-gradient(top, #fc3c3c, #b80422);
-    background-image: -moz-linear-gradient(top, #fc3c3c, #b80422);
-    background-image: -ms-linear-gradient(top, #fc3c3c, #b80422);
-    background-image: -o-linear-gradient(top, #fc3c3c, #b80422);
-    background-image: linear-gradient(to bottom, #fc3c3c, #b80422);
+    background: dodgerblue;
+    background-image: -webkit-linear-gradient(top, dodgerblue, );
+    background-image: -moz-linear-gradient(top, dodgerblue, midnightblue);
+    background-image: -ms-linear-gradient(top, dodgerblue, midnightblue);
+    background-image: -o-linear-gradient(top, dodgerblue, midnightblue);
+    background-image: linear-gradient(to bottom, dodgerblue, midnightblue);
     text-decoration: none;
     outline:none;
 }
