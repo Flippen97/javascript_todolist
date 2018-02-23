@@ -93,19 +93,29 @@ function addNewTodo() {
 function errorMessage(errortext){
     var error = document.getElementById('errormessage');
     error.style.display = 'block';
+    error.classList.add('fadeIn');
     document.getElementById("errormessage").innerHTML = errortext;
     setTimeout(function(){
-        error.style.display = 'none';
-    }, 4000);
+    error.classList.add('fadeOut');
+        setTimeout(function(){
+            error.style.display = 'none';
+            error.classList.remove("fadeOut");
+        }, 800);
+    }, 2000);
 }
 
 function succesMessage(succestext){
     var succes = document.getElementById('succesmessage');
     succes.style.display = 'block';
+    succes.classList.add('fadeIn');
     document.getElementById("succesmessage").innerHTML = succestext;
-    setTimeout(function(){
-        succes.style.display = 'none';
-    }, 4000);
+setTimeout(function(){
+    succes.classList.add('fadeOut');
+        setTimeout(function(){
+            succes.style.display = 'none';
+            succes.classList.remove("fadeOut");
+        }, 800);
+    }, 2000);
 }
 
 
