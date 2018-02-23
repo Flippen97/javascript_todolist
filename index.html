@@ -8,18 +8,27 @@
 </head>
 
 <body>
-    <h1>Todolist</h1>
-    <a href="#" id="clear">clear all</a>
-    <input id="entry" placeholder="Write your task here...">
-    <div id="errormessage"></div>
-    <div id="succesmessage"></div>
-    
-    <button id="add">Add a Task</button>
-    <div id="Todos">
-    </div> 
-    <div id="CompletedTodos">
-    </div>
+    <main id="container">
+        <header>
+            <h1>Todolist</h1>
+            <a href="#" id="clear">clear all</a>
+        </header>
+        <div class="addContainer">
+            <div id="errormessage"></div>
+            <div id="succesmessage"></div>
+            <input id="entry" placeholder="Write your task here...">
+            <button class="btn" id="add">Add a Task</button>
+        </div>
 
+        <div class="containerAllTodos">
+            <div id="Todos">
+            </div>
+            <div id="CompletedTodos">
+            </div>
+            <div class="clear"></div>
+        </div>
+
+    </main>
     <script src="main.js"></script>
 </body>
 </html>

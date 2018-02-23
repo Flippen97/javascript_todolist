@@ -5,7 +5,7 @@ var CompletedTodos = [];
 function ListAllTodos() {
     var html = '<h2>Task to do...</h2><ul>';
     for (i = 0; i < Todos.length; i++){
-      html += '<li><p>' + Todos[i] + '</p><a href="#" class="Completed">Completed</a>' + '<a href="#" class="deleteItem">Delete</a>' + '</li>';
+      html += '<li><p>' + Todos[i] + '</p><button href="#" class="Completed btn">Completed</button>' + '<button href="#" class="deleteItem btn">Delete</button>' + '</li>';
     }
     html += '</ul>';
 
@@ -13,7 +13,7 @@ function ListAllTodos() {
   
     var html2 = '<h2>Completed Tasks!!</h2><ul>';
     for (i = 0; i < CompletedTodos.length; i++){
-      html2 += '<li><p>' + CompletedTodos[i] + '</p><a href="#" class="deletecomp">Delete</a>' + '</li>';
+      html2 += '<li><p>' + CompletedTodos[i] + '</p><button href="#" class="deletecompleted btn">Delete</button>' + '</li>';
     }
     html2 += '</ul>';
 
@@ -26,10 +26,10 @@ function ListAllTodos() {
         deleteTodos[i].addEventListener('click', remove);
       }
     // Function to remove todo Todos if "x" is clicked
-      var deletecomp = document.getElementsByClassName('deletecomp');
-      for (i = 0; i < deletecomp.length; i++){
-      	deletecomp[i].id = i;
-        deletecomp[i].addEventListener('click', removecomp);
+      var deletecompleted = document.getElementsByClassName('deletecompleted');
+      for (i = 0; i < deletecompleted.length; i++){
+      	deletecompleted[i].id = i;
+        deletecompleted[i].addEventListener('click', removecomp);
       }
     // Function to remove todo Todos if "x" is clicked
       var CompletedTodo = document.getElementsByClassName('Completed');
@@ -44,53 +44,67 @@ function remove(event) {
     Todos.splice(event.target.id, 1);
     ListAllTodos();
     saveTodosInLocalStorage();
+    succesMessage("Task was removed!");
     return false;
 }
 function removecomp(event) {
     CompletedTodos.splice(event.target.id,1);
     ListAllTodos();
     saveTodosInLocalStorage();
+    succesMessage("Task was removed!");
     return false;
 }
 
 
 function comp(compevent){
-    var completed = Todos.splice(compevent.target.id, 1);
-    CompletedTodos.push(completed);   
+    var completedTask = Todos.splice(compevent.target.id, 1);
+    CompletedTodos.push(completedTask);   
     ListAllTodos();
     saveTodosInLocalStorage();
+    succesMessage("Task was completed!");
 }
 
 
 
 //add new todo
-document.getElementById('add').addEventListener('click', add);
+document.getElementById('add').addEventListener('click', addNewTodo);
 
-function add() {
+function addNewTodo() {
   var task = document.getElementById('entry').value;
     if(task !== ''){
         var n = Todos.includes(task);
            if (n === true){
-            errorMessage("This task..");
+            errorMessage("this task already exists");
             return false;
            }
         else{
             Todos.push(task);
             ListAllTodos();
             saveTodosInLocalStorage();
+            succesMessage("Task was created!");
             return false;
         }
     }
+    errorMessage("Please fill in the inputfield!");
     return false;
 }
 
 
-function errorMessage(message){
+function errorMessage(errortext){
     var error = document.getElementById('errormessage');
     error.style.display = 'block';
-    document.getElementById("errormessage").innerHTML = message;
+    document.getElementById("errormessage").innerHTML = errortext;
     setTimeout(function(){
         error.style.display = 'none';
+    }, 4000);
+}
+
+function succesMessage(succestext){
+    var succes = document.getElementById('succesmessage');
+    succes.style.display = 'block';
+    document.getElementById("succesmessage").innerHTML = succestext;
+    setTimeout(function(){
+        succes.style.display = 'none';
     }, 4000);
 }
 
@@ -100,6 +114,7 @@ document.getElementById('clear').addEventListener('click', clear);
 function clear(){
     localStorage.clear();
     location.reload();
+    succesMessage("All todos are deleted!!");
     return false;
 }
 

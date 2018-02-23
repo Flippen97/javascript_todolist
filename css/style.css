@@ -4,117 +4,163 @@
     margin:0;
 }
 body {
-    background-color:#2a2a2a;
+    background-color:#111216;
     font-family:'Open Sans', sans-serif;
+}
+.clear{
+    clear: both;
 }
 #container {
     background-color: #111216;
     color:#999999;
-    width:350px;
-    margin: 50px auto auto auto;
-    padding-bottom:12px;
+    width:100%;
+    margin: 0;
 }
-#formContainer {
-    padding-top:12px
+header {
+    margin-top:0;
+    background-color:#e63737;
+    width:100%;
+    height:48px;
 }
-#taskIOSection {
+header h1 {
+    padding-left: 10%;
+    font-size:25px;
+    font-weight:300;
+    color:#fff;
+    line-height:48px;
+    width:50%;
+    display:inline;
+}
+header a{
+  width:40%;
+  display:inline;
+  line-height:48px;
 }
 #entry {
  
     font-size:14px;
     font-family:'Open Sans', sans-serif;
     height:36px;
-    width:311px;
+    width: 90%;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
     border-radius:100px;
     background-color:#202023;
     border:0;
     color:#fff;
     display:block;
-    padding-left:15px;
-   -webkit-transition: all 0.30s ease-in-out;
-  -moz-transition: all 0.30s ease-in-out;
-  -ms-transition: all 0.30s ease-in-out;
-  -o-transition: all 0.30s ease-in-out;
+    padding: 0 2.5% 0 2.5%;
+    margin: 10px 0 10px 2.5%; 
+    box-shadow: 0px 0px 1pt 1pt #999999;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
 }
 #entry:focus{
-  box-shadow: 0px 0px 1pt 1pt #999999;
- background-color:#111216; 
-  outline:none;
+    box-shadow: 0px 0px 1pt 1pt #fff;
+    background-color:#111216; 
+    outline:none;
 }
-::-webkit-input-placeholder {
-    color: #333333;
-    font-style:italic;
-    /* padding-left:10px; */
-}
-:-moz-placeholder {
-    /* Firefox 18- */
-    color: #333333;
-    font-style:italic;
-}
-::-moz-placeholder {
-    /* Firefox 19+ */
-    color: #333333;
-    font-style:italic;
-}
-:-ms-input-placeholder {
-    color: #333333;
-    font-style:italic;
-}
-header {
-    margin-top:0;
-    background-color:#F94D50;
-    width:338px;
-    height:48px;
-    padding-left:12px;
-}
-header h1 {
-    font-size:25px;
-    font-weight:300;
-    color:#fff;
-    line-height:48px;
-  width:50%;
-  display:inline;
-}
-header a{
-  
-  width:40%;
-  display:inline;
-  line-height:48px;
-}
-#taskEntryForm {
-    background-color:#111216;
-    width:326px;
-    height: 48px;
-    border-width:0px;
-    padding: 0px 12px 0px 12px;
-    font-size:0px;
-}
-#Todos {
+#Todos, #CompletedTodos {
     width: 350px;
     margin:auto;
     font-size:19px;
     font-weight:600;
+    
 }
 ul li {
     background-color:#17181D;
     height:auto;
     width:314px;
     padding-left:12px;
-    margin:0 auto 10px auto;
+    margin: 10px auto 10px auto;
     line-height:48px;
     list-style:none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 1pt 1pt #999999;
 }
 p{
     width: 100%;
+    color: #fff;
 }
 a {
     width: 50%;
     margin-left: 45px;
 }
+h2{
+    text-align: center;
+    color: white;
+    text-decoration: underline;
+}
 #errormessage{
-    width: 300px;
-    height: 40px;
+    width: 90%;
+    padding: 0 2.5% 0 2.5%;
+    margin: 10px 0 10px 2.5%; 
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius:100px;
+    line-height: 36px;
+    height: 36px;
     background-color: darkred;
     color:white;
     display: none;
+}
+#succesmessage{
+    width: 90%;
+    padding: 0 2.5% 0 2.5%;
+    margin: 10px 0 10px 2.5%; 
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius:100px;
+    line-height: 36px;
+    height: 36px;
+    background-color: green;
+    color:white;
+    display: none; 
+}
+.btn {
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 14px;
+    background: #e63737;
+    width: 95%;
+    padding: 9px 2.5% 9px 2.5%;
+    margin: 10px 0 10px 2.5%; 
+    text-decoration: none;
+    outline:none;
+}
+li .btn{
+    width: 45%;
+}
+.btn:hover {
+    background: #fc3c3c;
+    background-image: -webkit-linear-gradient(top, #fc3c3c, #b80422);
+    background-image: -moz-linear-gradient(top, #fc3c3c, #b80422);
+    background-image: -ms-linear-gradient(top, #fc3c3c, #b80422);
+    background-image: -o-linear-gradient(top, #fc3c3c, #b80422);
+    background-image: linear-gradient(to bottom, #fc3c3c, #b80422);
+    text-decoration: none;
+    outline:none;
+}
+@media screen and (min-width: 700px) {
+    header h1 {
+    padding-left: 25%;
+}
+    .addContainer{
+    width: 700px;
+    margin: auto;
+}
+    .containerAllTodos{
+        width: 700px;
+        margin: auto;
+}
+    #Todos, #CompletedTodos {
+    float: left;
+    margin: 0 auto 0  auto;
+}
+
 }
