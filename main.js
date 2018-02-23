@@ -1,8 +1,12 @@
 /*global localStorage: true, console: true, $: true , document: true, i: true, location: true;, alert: true setTimeout: true*/
+
+//Two arrays where the todos gets stored
 var Todos = [];
 var CompletedTodos = [];
 
 function ListAllTodos() {
+    /*loop all Todos that is not completed from Todos array and add two buttons delete and completed.
+    This loop works really well with witing html and then ju print it with innnerhtml*/
     var html = '<h2>Task to do...</h2><ul>';
     for (i = 0; i < Todos.length; i++){
       html += '<li><p>' + Todos[i] + '</p><button href="#" class="Completed btn">Completed</button>' + '<button href="#" class="deleteItem btn">Delete</button>' + '</li>';
@@ -11,6 +15,7 @@ function ListAllTodos() {
 
     document.getElementById('Todos').innerHTML = html;
   
+    //Loop all completed todos from CompletedTodos array and add one delete button
     var html2 = '<h2>Completed Tasks!!</h2><ul>';
     for (i = 0; i < CompletedTodos.length; i++){
       html2 += '<li><p>' + CompletedTodos[i] + '</p><button href="#" class="deletecompleted btn">Delete</button>' + '</li>';
@@ -19,7 +24,7 @@ function ListAllTodos() {
 
     document.getElementById('CompletedTodos').innerHTML = html2;
     
-    // Function to remove todo Todos if "x" is clicked
+    //Locate the delete buttons on the not completed "Todos" and add id and eventlister.
       var deleteTodos = document.getElementsByClassName('deleteItem');
       for (i = 0; i < deleteTodos.length; i++){
       	deleteTodos[i].id = i;
@@ -66,7 +71,7 @@ function comp(compevent){
 
 
 
-//add new todo
+//Add eventlisterner to check if "add button" is clicked if that happen it runs addNewTodo function.
 document.getElementById('add').addEventListener('click', addNewTodo);
 
 function addNewTodo() {
